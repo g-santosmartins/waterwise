@@ -3,8 +3,7 @@
     <string name="hint_weight">Insira seu peso (kg)</string>
     <string name="hint_age">Insira sua idade (anos)</string>
     <string name="hint_name">Insira seu nome</string>
-    <string name="text_calculate_button">Cacular a sua ingestão diária</string>
     <string name="text_register_alarm">Adicionar lembrete</string>
-    <string name="text_list_alarms">Listar alarmes</string>
+    <string name="text_list_alarms">Listar lembretes</string>
     <string name="text_save_all">Salvar alterações</string>
 </resources>
