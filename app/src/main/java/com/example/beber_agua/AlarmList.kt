@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.widget.ImageView
 
 class AlarmList : AppCompatActivity() {
+
+    private lateinit var buttonBackRef : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarm_list)
@@ -16,9 +18,9 @@ class AlarmList : AppCompatActivity() {
             startActivity(homeScreen)
         }
 
-        val button_back : ImageView = findViewById(R.id.imageViewBackIcon)
+        buttonBackRef  = findViewById(R.id.imageViewBackIcon)
 
-        button_back.setOnClickListener{
+        buttonBackRef.setOnClickListener{
             goToSettingsPage()
         }
     }

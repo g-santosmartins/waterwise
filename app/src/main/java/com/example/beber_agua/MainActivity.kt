@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var buttonBackRef: ImageView
+    private lateinit var buttonListAlarmsRef: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +29,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(alarmlistScreen)
         }
 
-        val buttonSettings : ImageView = findViewById(R.id.imageSettings)
+        buttonBackRef= findViewById(R.id.imageSettings)
 
-        buttonSettings.setOnClickListener{
+        buttonBackRef.setOnClickListener{
             goToSettingsScreen()
         }
-        val buttonListAlarms : Button = findViewById(R.id.buttonAlarmList)
+         buttonListAlarmsRef = findViewById(R.id.buttonAlarmList)
 
-        buttonListAlarms.setOnClickListener{
+        buttonListAlarmsRef.setOnClickListener{
             goToAlarmListScreen()
         }
 
