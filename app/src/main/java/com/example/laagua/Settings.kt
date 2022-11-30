@@ -1,4 +1,4 @@
-package com.example.beber_agua
+package com.example.laagua
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import com.example.beber_agua.R
+import com.example.laagua.utils.CalculateHowMuchWater
 
 class Settings : AppCompatActivity() {
 
@@ -49,11 +51,11 @@ class Settings : AppCompatActivity() {
         buttonCalculateHowMuchWaterRef.setOnClickListener{
             if(inputNameRef.text.toString().isEmpty()){
                 println("entando aqui")
-                Toast.makeText(this,R.string.toast_message_error_name, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_message_error_name, Toast.LENGTH_SHORT).show()
             }else if (inputWeightRef.text.toString().isEmpty()) {
-                Toast.makeText(this,R.string.toast_message_error_weight, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_message_error_weight, Toast.LENGTH_SHORT).show()
             } else if(inputAgeRef.text.toString().isEmpty() ) {
-                Toast.makeText(this,R.string.toast_message_error_age, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.toast_message_error_age, Toast.LENGTH_SHORT).show()
             }else {
                 println("entrando no calculo de ML")
                 val weight = inputWeightRef.text.toString().toDouble()
@@ -67,7 +69,7 @@ class Settings : AppCompatActivity() {
         }
         buttonDeletion.setOnClickListener{
             deleteAllFields()
-            Toast.makeText(this,R.string.toast_message_clear, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.toast_message_clear, Toast.LENGTH_SHORT).show()
         }
 
         buttonBackRef.setOnClickListener{

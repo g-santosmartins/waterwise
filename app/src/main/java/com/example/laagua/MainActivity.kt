@@ -1,4 +1,4 @@
-package com.example.beber_agua
+package com.example.laagua
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDelegate
+import com.example.beber_agua.R
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var buttonBackRef: ImageView
+    private lateinit var buttonCloseRef: ImageView
     private lateinit var buttonListAlarmsRef: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,17 +32,27 @@ class MainActivity : AppCompatActivity() {
             startActivity(alarmlistScreen)
         }
 
+        fun endProgramProcess() {
+            finishAndRemoveTask()
+            exitProcess(0);
+        }
+
+//      components initial state
+        buttonCloseRef = findViewById(R.id.imageViewCloseButton)
         buttonBackRef= findViewById(R.id.imageSettings)
+        buttonListAlarmsRef = findViewById(R.id.buttonAlarmList)
+
+//      listeners
+        buttonCloseRef.setOnClickListener{
+            println("Adicionando copo de agua")
+        }
 
         buttonBackRef.setOnClickListener{
             goToSettingsScreen()
         }
-         buttonListAlarmsRef = findViewById(R.id.buttonAlarmList)
 
         buttonListAlarmsRef.setOnClickListener{
             goToAlarmListScreen()
         }
-
-
     }
 }

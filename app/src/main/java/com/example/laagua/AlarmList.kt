@@ -1,9 +1,11 @@
-package com.example.beber_agua
+package com.example.laagua
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import com.example.beber_agua.R
+
 
 class AlarmList : AppCompatActivity() {
 

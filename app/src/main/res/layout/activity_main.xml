@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background_color"
-        tools:context=".MainActivity">
+        tools:context="com.example.laagua.MainActivity">
 
         <View
             android:id="@+id/container_header"
@@ -36,17 +36,28 @@
             app:layout_constraintHorizontal_bias="0.954"
             app:layout_constraintStart_toStartOf="parent" />
 
+
+        <View
+            android:id="@+id/floatingButtonDanger"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="48dp"
+            android:background="@drawable/floating_button_success"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/logo"
             app:layout_constraintEnd_toEndOf="@+id/container_header"
-            app:layout_constraintHorizontal_bias="0.113"
+            app:layout_constraintHorizontal_bias="0.182"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <ImageView
             android:id="@+id/imageSettings"
@@ -59,19 +70,29 @@
             app:layout_constraintTop_toTopOf="@+id/floatingButton"
             app:layout_constraintVertical_bias="0.55" />
 
+        <ImageView
+            android:id="@+id/imageViewCloseButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_drink"
+            app:layout_constraintBottom_toBottomOf="@+id/floatingButtonDanger"
+            app:layout_constraintEnd_toEndOf="@+id/floatingButtonDanger"
+            app:layout_constraintStart_toStartOf="@+id/floatingButtonDanger"
+            app:layout_constraintTop_toTopOf="@+id/floatingButtonDanger" />
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:text="Meu progresso"
             android:textColor="@color/white"
             android:textSize="27sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/container_header"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.538"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/container_header" />
-
 
         <View
             android:id="@+id/viewResultWater"
