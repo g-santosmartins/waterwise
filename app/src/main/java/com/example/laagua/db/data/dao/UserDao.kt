@@ -5,23 +5,26 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.laagua.db.entity.User
+import com.example.laagua.db.entity.UserEntity
 
 @Dao
 interface UserDao {
 //  Crud basic operations interface
     @Insert
-    suspend fun insert(user: User):Long
+     fun insert(user: UserEntity):Long
 
     @Update
-    suspend fun update(user: User)
+     fun update(user: UserEntity)
+
+    @Query("SELECT * FROM user WHERE id = :id")
+     fun getById(id: Long) : UserEntity
 
     @Query("DELETE FROM user WHERE id = :id")
-    suspend fun delete(id: Long)
+     fun delete(id: Long)
 
     @Query("DELETE FROM user")
-    suspend fun deleteAll()
+     fun deleteAll()
 
     @Query("SELECT * FROM user")
-    fun getAll(): LiveData<List<User>>
+    fun getAll(): LiveData<List<UserEntity>>
 }

@@ -45,15 +45,55 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="56dp"
         android:text="Informações pessoais"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="27sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/inputName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Nome:"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/inputName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Peso:"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/inputWeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputWeight" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Idade:"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/inputAge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputAge" />
 
     <TextView
         android:id="@+id/labelWaterGoal"
@@ -73,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="..."
+        android:text="---"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -97,7 +137,7 @@
         android:id="@+id/imageViewDeleteIcon"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/ic_delete"
+        android:background="@drawable/ic_close"
         app:layout_constraintBottom_toBottomOf="@+id/floatingButton"
         app:layout_constraintEnd_toEndOf="@+id/floatingButton"
         app:layout_constraintStart_toStartOf="@+id/floatingButton"
@@ -147,7 +187,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
         android:gravity="center"
         android:hint="@string/hint_age"
         android:inputType="number"
@@ -169,7 +208,7 @@
         android:layout_marginBottom="96dp"
         android:background="@drawable/bg_gradient_standard_button"
         android:padding="15dp"
-        android:text="@string/text_save_all"
+        android:text="@string/text_confirm"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"

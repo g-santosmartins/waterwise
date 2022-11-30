@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 
 
 @Entity()
-data class Alarm(
+data class AlarmEntity(
     @PrimaryKey val uuid: String,
     var name: String,
     @ColumnInfo(name = "user_age")

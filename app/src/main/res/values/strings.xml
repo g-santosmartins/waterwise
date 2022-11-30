@@ -6,9 +6,16 @@
     <string name="text_register_alarm">Adicionar lembrete</string>
     <string name="text_list_alarms">Listar lembretes</string>
     <string name="text_save_all">Salvar alterações</string>
+    <string name="text_calculate">Calcular</string>
+    <string name="text_confirm">Confirmar</string>
 
     <string name="toast_message_error_name">Por favor, informe seu nome e tente novamente!</string>
     <string name="toast_message_error_weight">Por favor, informe seu peso e tente novamente!</string>
     <string name="toast_message_error_age">Por favor, informe sua idade e tente novamente!</string>
-    <string name="toast_message_clear">Campos limpos com sucesso!</string>
+    <string name="toast_message_clear">Campos limpos, preencha com a nova informação!</string>
+    <string name="toast_message_saved">Salvo!</string>
+    <string name="toast_message_update">Atualizado!</string>
+
+    <string name="text_user_add_error">Erro ao inserir nformações de usuário!</string>
+    <string name="text_user_added">Informações de usuário cadastradas!</string>
 </resources>

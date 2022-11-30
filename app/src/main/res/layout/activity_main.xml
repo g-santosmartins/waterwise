@@ -106,10 +106,10 @@
             app:layout_constraintTop_toBottomOf="@+id/container_header" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/waterAmountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3500ml"
+            android:text="--- ml"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="40sp"
             android:textStyle="bold"
@@ -124,14 +124,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="84dp"
-            android:text="10:30"
+            android:text="--:--"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="@+id/viewResultWater"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/waterAmountTextView" />
 
         <Button
             android:id="@+id/buttonAlarmRegister"
@@ -173,7 +173,7 @@
             android:background="@drawable/ic_clock"
             app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
             app:layout_constraintStart_toStartOf="@+id/viewResultWater"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/waterAmountTextView" />
 
 
         <ImageView
@@ -182,7 +182,7 @@
             android:layout_height="40dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/ic_water_drop"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintBottom_toTopOf="@+id/waterAmountTextView"
             app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
             app:layout_constraintStart_toStartOf="@+id/viewResultWater" />
 
