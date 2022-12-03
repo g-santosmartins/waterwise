@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background_color"
-        tools:context="com.example.laagua.MainActivity">
+        tools:context="com.example.beber_agua.MainActivity">
 
         <View
             android:id="@+id/container_header"
@@ -148,7 +148,7 @@
             android:id="@+id/waterAmountTextView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="--- ml"
+            android:text="0 ml"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="40sp"
             android:textStyle="bold"

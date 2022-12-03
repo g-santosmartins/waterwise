@@ -1,4 +1,4 @@
-package com.example.laagua.utils
+package com.example.beber_agua.utils
 
 class CalculateHowMuchWater {
 

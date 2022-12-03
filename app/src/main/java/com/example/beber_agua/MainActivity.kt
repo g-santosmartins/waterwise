@@ -1,4 +1,4 @@
-package com.example.laagua
+package com.example.beber_agua
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,9 +9,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.room.Room
-import com.example.beber_agua.R
-import com.example.laagua.db.AppDatabase
-import com.example.laagua.db.entity.UserEntity
+import com.example.beber_agua.db.AppDatabase
+import com.example.beber_agua.db.entity.UserEntity
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
@@ -26,12 +25,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //      hides status bar on app load
+        supportActionBar!!.hide()
+//      Removes the dark mode from the app
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         //        components initial state
         waterAmountTextViewRef = findViewById(R.id.waterAmountTextView)
         textViewUserName = findViewById(R.id.textViewUserName)
         buttonCloseRef = findViewById(R.id.imageViewCloseButton)
         buttonBackRef= findViewById(R.id.imageSettings)
         buttonListAlarmsRef = findViewById(R.id.buttonAlarmList)
+
+        val db = Room.databaseBuilder(
+            this,
+            AppDatabase::class.java,
+            "laagua.db"
+        ).allowMainThreadQueries().build()
 
         fun goToSettingsScreen() {
             var settingScreen = Intent(this, Settings::class.java)
@@ -41,16 +50,10 @@ class MainActivity : AppCompatActivity() {
             var alarmlistScreen = Intent(this, AlarmList::class.java)
             startActivity(alarmlistScreen)
         }
-
-        fun endProgramProcess() {
-            finishAndRemoveTask()
-            exitProcess(0);
+        fun goToGlassOptionsScreen() {
+            var glasslistScreen = Intent(this, GlassList::class.java)
+            startActivity(glasslistScreen)
         }
-        val db = Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            "laagua.db"
-        ).allowMainThreadQueries().build()
 
         val userCalled : UserEntity = db.userDao.getById(1)
         var hasUser : Boolean = false
@@ -66,19 +69,13 @@ class MainActivity : AppCompatActivity() {
             goToSettingsScreen()
         }
 
-
-//      hides status bar on app load
-        supportActionBar!!.hide()
-//      Removes the dark mode from the app
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-
 //      listeners
         buttonCloseRef.setOnClickListener{
-            AlertDialog.Builder(this)
-                .setTitle(R.string.text_get_started)
-                .setMessage(R.string.text_get_started_description)
-                .show()
+//            AlertDialog.Builder(this)
+//                .setTitle(R.string.text_get_started)
+//                .setMessage(R.string.text_get_started_description)
+//                .show()
+            goToGlassOptionsScreen()
         }
 
         buttonBackRef.setOnClickListener{

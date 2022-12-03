@@ -1,10 +1,9 @@
-package com.example.laagua.db.entity
+package com.example.beber_agua.db.entity
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "User")
+@Entity(tableName = "user")
 data class UserEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
@@ -12,5 +11,6 @@ data class UserEntity(
     val email: String,
     val age: Int,
     val weight: Float,
-    val waterAmount: Float
+    val waterAmount: Float,
+    val waterAmountDrank: Float
 )

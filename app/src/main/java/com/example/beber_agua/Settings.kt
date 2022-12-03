@@ -1,4 +1,4 @@
-package com.example.laagua
+package com.example.beber_agua
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,10 +10,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
 import androidx.room.Room
-import com.example.beber_agua.R
-import com.example.laagua.db.AppDatabase
-import com.example.laagua.db.entity.UserEntity
-import com.example.laagua.utils.CalculateHowMuchWater
+import com.example.beber_agua.db.AppDatabase
+import com.example.beber_agua.db.entity.UserEntity
+import com.example.beber_agua.utils.CalculateHowMuchWater
 
 class Settings : AppCompatActivity() {
 
@@ -94,7 +93,8 @@ class Settings : AppCompatActivity() {
                         email = "exemplo@exemplo.com.br",
                         weight = weightParsed.toFloat(),
                         age = ageParsed,
-                        waterAmount = waterAmount
+                        waterAmount = waterAmount,
+                        waterAmountDrank = 0F
                     )
                 )
                 return true
@@ -126,7 +126,8 @@ class Settings : AppCompatActivity() {
                         email = "exemplo@exemplo.com.br",
                         weight = weightParsed.toFloat(),
                         age = ageParsed,
-                        waterAmount = waterAmount
+                        waterAmount = waterAmount,
+                        waterAmountDrank = 0F
                     )
                 )
                 return true

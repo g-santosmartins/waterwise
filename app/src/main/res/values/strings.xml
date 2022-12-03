@@ -21,6 +21,8 @@
     <string name="text_get_started_description">Por favor preencha os campos para que possamos estimar a quantidade de água que você
         deve ingerir, uma vez que isso tenha sido feito, armazenaremos esses dados para consultas ou modificações futuras.</string>
 
+    <string name="text_glass_select">Adicionar água</string>
+
     <string name="text_user_add_error">Erro ao inserir nformações de usuário!</string>
     <string name="text_user_added">Informações de usuário cadastradas!</string>
 </resources>

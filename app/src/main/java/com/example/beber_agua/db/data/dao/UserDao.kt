@@ -1,11 +1,11 @@
-package com.example.laagua.db.data.dao
+package com.example.beber_agua.db.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.laagua.db.entity.UserEntity
+import com.example.beber_agua.db.entity.UserEntity
 
 @Dao
 interface UserDao {
