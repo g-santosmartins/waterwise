@@ -22,6 +22,11 @@
         deve ingerir, uma vez que isso tenha sido feito, armazenaremos esses dados para consultas ou modificações futuras.</string>
 
     <string name="text_glass_select">Adicionar água</string>
+    <string name="text_glass_200">200 ml de água</string>
+    <string name="text_glass_300">300 ml de água</string>
+    <string name="text_glass_400">400 ml de água</string>
+    <string name="text_alarm_description">Opa, está hora de tomar aquela água 💙 </string>
+
 
     <string name="text_user_add_error">Erro ao inserir nformações de usuário!</string>
     <string name="text_user_added">Informações de usuário cadastradas!</string>

@@ -1,10 +1,15 @@
 package com.example.beber_agua
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDelegate
 
 class GlassList : AppCompatActivity() {
+
+    private lateinit var buttonBackRef : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_glass_list)
@@ -13,6 +18,17 @@ class GlassList : AppCompatActivity() {
         supportActionBar!!.hide()
 //      Removes the dark mode from the app
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+        fun goToHomePage() {
+            var homeScreen = Intent(this, MainActivity::class.java)
+            startActivity(homeScreen)
+        }
+        buttonBackRef  = findViewById(R.id.imageViewBackIcon)
+
+        buttonBackRef.setOnClickListener{
+            goToHomePage()
+        }
+
 
 
     }

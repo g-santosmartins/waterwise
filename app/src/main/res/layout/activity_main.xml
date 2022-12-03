@@ -70,7 +70,7 @@
             app:layout_constraintVertical_bias="0.55" />
 
         <ImageView
-            android:id="@+id/imageViewCloseButton"
+            android:id="@+id/imageButtonGlassPage"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/ic_drink"
@@ -145,7 +145,7 @@
             app:layout_constraintVertical_bias="0.534" />
 
         <TextView
-            android:id="@+id/waterAmountTextView3"
+            android:id="@+id/waterAmountUserProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0 ml"

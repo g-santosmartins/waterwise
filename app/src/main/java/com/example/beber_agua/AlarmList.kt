@@ -19,7 +19,7 @@ class AlarmList : AppCompatActivity() {
 //      Removes the dark mode from the app
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        fun goToSettingsPage() {
+        fun goToHomePage() {
             var homeScreen = Intent(this, MainActivity::class.java)
             startActivity(homeScreen)
         }
@@ -27,7 +27,7 @@ class AlarmList : AppCompatActivity() {
         buttonBackRef  = findViewById(R.id.imageViewBackIcon)
 
         buttonBackRef.setOnClickListener{
-            goToSettingsPage()
+            goToHomePage()
         }
     }
 }
