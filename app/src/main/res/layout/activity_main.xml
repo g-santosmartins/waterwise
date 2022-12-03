@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+    android:fillViewport="true">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -154,9 +153,21 @@
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginTop="352dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text="@string/text_list_alarms"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_alarms"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAlarmList2"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <Button
+            android:id="@+id/buttonAlarmList2"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/text_list_alarms"
             android:textSize="18dp"
@@ -188,4 +199,4 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+</ScrollView>

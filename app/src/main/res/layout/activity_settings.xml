@@ -1,222 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d8eaf5"
-    tools:context="com.example.laagua.Settings">
+    android:fillViewport="true">
 
-    <View
-        android:id="@+id/container_header"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/container_header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:background="#d8eaf5"
+        tools:context="com.example.laagua.Settings">
 
-    <View
-        android:id="@+id/floatingButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/floating_button_danger"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCalculateWaterAmount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent" />
+        <View
+            android:id="@+id/container_header"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/container_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Ajustes"
-        android:textColor="@color/white"
-        android:textSize="27sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/container_header"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/container_header" />
+        <View
+            android:id="@+id/floatingButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/floating_button_danger"
+            app:layout_constraintBottom_toTopOf="@+id/buttonCalculateWaterAmount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.943"
+            app:layout_constraintStart_toStartOf="parent" />
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:text="Informações pessoais"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="27sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/inputName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Nome:"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/inputName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputName" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Peso:"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/inputWeight"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputWeight" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Idade:"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/inputAge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputAge" />
-
-    <TextView
-        android:id="@+id/labelWaterGoal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Sua meta:"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="27sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputAge" />
-
-    <TextView
-        android:id="@+id/textWaterGoal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="---"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelWaterGoal" />
-
-    <ImageView
-        android:id="@+id/imageViewBackIcon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ic_back"
-        app:layout_constraintEnd_toEndOf="@+id/container_header"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="@+id/container_header"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageViewDeleteIcon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/ic_close"
-        app:layout_constraintBottom_toBottomOf="@+id/floatingButton"
-        app:layout_constraintEnd_toEndOf="@+id/floatingButton"
-        app:layout_constraintStart_toStartOf="@+id/floatingButton"
-        app:layout_constraintTop_toTopOf="@+id/floatingButton" />
-
-    <EditText
-        android:id="@+id/inputName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:hint="@string/hint_name"
-        android:inputType="textAutoCorrect"
-        android:maxLength="80"
-        android:padding="15dp"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textColorHint="@android:color/holo_blue_dark"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/container_header" />
-
-    <EditText
-        android:id="@+id/inputWeight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
-        android:hint="@string/hint_weight"
-        android:inputType="numberDecimal"
-        android:maxLength="7"
-        android:padding="15dp"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textColorHint="@android:color/holo_blue_dark"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inputName" />
-
-    <EditText
-        android:id="@+id/inputAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:hint="@string/hint_age"
-        android:inputType="number"
-        android:maxLength="3"
-        android:padding="15dp"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textColorHint="@android:color/holo_blue_dark"
-        android:textSize="23sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inputWeight" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonCalculateWaterAmount"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="96dp"
-        android:background="@drawable/bg_gradient_standard_button"
-        android:padding="15dp"
-        android:text="@string/text_confirm"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_goneMarginRight="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Ajustes"
+            android:textColor="@color/white"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/container_header"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/container_header" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="56dp"
+            android:text="Informações pessoais"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/inputName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Nome:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/inputName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/inputName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Peso:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/inputWeight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/inputWeight" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Idade:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/inputAge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/inputAge" />
+
+        <TextView
+            android:id="@+id/labelWaterGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Sua meta:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputAge" />
+
+        <TextView
+            android:id="@+id/textWaterGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="---"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelWaterGoal" />
+
+        <ImageView
+            android:id="@+id/imageViewBackIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_back"
+            app:layout_constraintEnd_toEndOf="@+id/container_header"
+            app:layout_constraintHorizontal_bias="0.123"
+            app:layout_constraintStart_toStartOf="@+id/container_header"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewDeleteIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="@+id/floatingButton"
+            app:layout_constraintEnd_toEndOf="@+id/floatingButton"
+            app:layout_constraintStart_toStartOf="@+id/floatingButton"
+            app:layout_constraintTop_toTopOf="@+id/floatingButton" />
+
+        <EditText
+            android:id="@+id/inputName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:hint="@string/hint_name"
+            android:inputType="textAutoCorrect"
+            android:maxLength="80"
+            android:padding="15dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHint="@android:color/holo_blue_dark"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container_header" />
+
+        <EditText
+            android:id="@+id/inputWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:hint="@string/hint_weight"
+            android:inputType="numberDecimal"
+            android:maxLength="7"
+            android:padding="15dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHint="@android:color/holo_blue_dark"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputName" />
+
+        <EditText
+            android:id="@+id/inputAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:hint="@string/hint_age"
+            android:inputType="number"
+            android:maxLength="3"
+            android:padding="15dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHint="@android:color/holo_blue_dark"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputWeight" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonCalculateWaterAmount"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="96dp"
+            android:background="@drawable/bg_gradient_standard_button"
+            android:padding="15dp"
+            android:text="@string/text_confirm"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_goneMarginRight="20dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
