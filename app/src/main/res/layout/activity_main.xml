@@ -44,7 +44,7 @@
             android:background="@drawable/floating_button_success"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintHorizontal_bias="0.056"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
@@ -81,10 +81,24 @@
 
 
         <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Seu progresso atual: "
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="23dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/container_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container_header" />
+
+        <TextView
+            android:id="@+id/textViewUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Meu progresso"
+            android:text="Olá,"
             android:textColor="@color/white"
             android:textSize="27sp"
             android:textStyle="bold"
@@ -97,15 +111,41 @@
             android:id="@+id/viewResultWater"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="72dp"
             android:background="@drawable/water_drink_result"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/container_header" />
 
+        <View
+            android:id="@+id/viewResultWater3"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="192dp"
+            android:background="@drawable/water_drink_result"
+            app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/viewResultWater"
+            app:layout_constraintTop_toTopOf="@+id/viewResultWater" />
+
         <TextView
             android:id="@+id/waterAmountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 ml | meta"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/viewResultWater"
+            app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="@+id/viewResultWater"
+            app:layout_constraintTop_toTopOf="@+id/viewResultWater"
+            app:layout_constraintVertical_bias="0.534" />
+
+        <TextView
+            android:id="@+id/waterAmountTextView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="--- ml"
@@ -114,23 +154,23 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewResultWater"
             app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
-            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="@+id/viewResultWater"
             app:layout_constraintTop_toTopOf="@+id/viewResultWater"
-            app:layout_constraintVertical_bias="0.291" />
+            app:layout_constraintVertical_bias="0.251" />
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
             android:text="--:--"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="@+id/viewResultWater"
-            app:layout_constraintTop_toBottomOf="@+id/waterAmountTextView" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewResultWater3"
+            app:layout_constraintEnd_toEndOf="@+id/viewResultWater3"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/viewResultWater3"
+            app:layout_constraintTop_toTopOf="@+id/viewResultWater3" />
 
         <Button
             android:id="@+id/buttonAlarmRegister"
@@ -138,8 +178,8 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="60dp"
             android:layout_marginRight="20dp"
+            android:layout_marginTop="60dp"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/text_register_alarm"
             android:textSize="18dp"
@@ -153,21 +193,9 @@
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_marginTop="352dp"
-            android:backgroundTint="@android:color/holo_blue_dark"
-            android:text="@string/text_list_alarms"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:icon="@drawable/ic_alarms"
-            app:layout_constraintTop_toBottomOf="@+id/buttonAlarmList2"
-            tools:layout_editor_absoluteX="0dp" />
-
-        <Button
-            android:id="@+id/buttonAlarmList2"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:text="@string/text_list_alarms"
             android:textSize="18dp"
@@ -176,24 +204,23 @@
             app:layout_constraintTop_toBottomOf="@+id/buttonAlarmRegister"
             tools:layout_editor_absoluteX="16dp" />
 
+
         <ImageView
             android:id="@+id/imageClock"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="31dp"
+            android:layout_height="33dp"
             android:background="@drawable/ic_clock"
-            app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
-            app:layout_constraintStart_toStartOf="@+id/viewResultWater"
-            app:layout_constraintTop_toBottomOf="@+id/waterAmountTextView" />
-
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="@+id/viewResultWater3"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="@+id/viewResultWater3" />
 
         <ImageView
             android:id="@+id/imageWaterDrop"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginBottom="8dp"
             android:background="@drawable/ic_water_drop"
-            app:layout_constraintBottom_toTopOf="@+id/waterAmountTextView"
+            app:layout_constraintBottom_toTopOf="@+id/waterAmountTextView3"
             app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
             app:layout_constraintStart_toStartOf="@+id/viewResultWater" />
 

@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
 import androidx.room.Room
 import com.example.beber_agua.R
@@ -51,6 +52,8 @@ class Settings : AppCompatActivity() {
             inputWeightRef.setText(userCalled.weight.toString())
             inputAgeRef.setText(userCalled.age.toString())
             textWaterGoalRef.text = String.format("%.3f", userCalled.waterAmount) + " L/dia"
+        }else {
+            AlertDialog.Builder(this).setTitle(R.string.text_get_started).setMessage(R.string.text_get_started_description).show()
         }
 
 

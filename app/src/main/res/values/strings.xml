@@ -2,7 +2,7 @@
     <string name="app_name">Laagua</string>
     <string name="hint_weight">Insira seu peso (kg)</string>
     <string name="hint_age">Insira sua idade (anos)</string>
-    <string name="hint_name">Insira seu nome</string>
+    <string name="hint_name">Insira seu primeiro nome</string>
     <string name="text_register_alarm">Adicionar lembrete</string>
     <string name="text_list_alarms">Listar lembretes</string>
     <string name="text_save_all">Salvar alterações</string>
@@ -15,6 +15,11 @@
     <string name="toast_message_clear">Campos limpos, preencha com a nova informação!</string>
     <string name="toast_message_saved">Salvo!</string>
     <string name="toast_message_update">Atualizado!</string>
+
+    <string name="text_personal_data">Dados pessoais</string>
+    <string name="text_get_started">Por onde começar?</string>
+    <string name="text_get_started_description">Por favor preencha os campos para que possamos estimar a quantidade de água que você
+        deve ingerir, uma vez que isso tenha sido feito, armazenaremos esses dados para consultas ou modificações futuras.</string>
 
     <string name="text_user_add_error">Erro ao inserir nformações de usuário!</string>
     <string name="text_user_added">Informações de usuário cadastradas!</string>
