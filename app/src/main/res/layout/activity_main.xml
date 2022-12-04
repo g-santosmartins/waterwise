@@ -33,7 +33,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.954"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAlarmList" />
 
 
         <View
@@ -45,7 +46,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.056"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAlarmList" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -87,7 +89,7 @@
             android:layout_marginTop="20dp"
             android:text="Seu progresso atual: "
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="23dp"
+            android:textSize="25dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/container_header"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +102,7 @@
             android:layout_marginTop="24dp"
             android:text="Olá,"
             android:textColor="@color/white"
-            android:textSize="27sp"
+            android:textSize="25dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/container_header"
             app:layout_constraintHorizontal_bias="0.538"
@@ -135,7 +137,7 @@
             android:layout_height="wrap_content"
             android:text="0 ml | meta"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="38sp"
+            android:textSize="35dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewResultWater"
             app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
@@ -150,7 +152,7 @@
             android:layout_height="wrap_content"
             android:text="0 ml"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="40sp"
+            android:textSize="40dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewResultWater"
             app:layout_constraintEnd_toEndOf="@+id/viewResultWater"
@@ -164,7 +166,7 @@
             android:layout_height="wrap_content"
             android:text="--:--"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="30sp"
+            android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewResultWater3"
             app:layout_constraintEnd_toEndOf="@+id/viewResultWater3"

@@ -45,7 +45,7 @@
             android:layout_marginTop="24dp"
             android:text="Lista de lembretes"
             android:textColor="@color/white"
-            android:textSize="27sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/container_header"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,8 +53,8 @@
 
         <ImageView
             android:id="@+id/imageViewBackIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/ic_back"
             app:layout_constraintEnd_toEndOf="@+id/container_header"
