@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var waterAmountTextViewRef: TextView
     private lateinit var textViewUserName: TextView
     private lateinit var waterAmountUserProgress: TextView
+    private lateinit var textViewProgressMesssage: TextView
     private lateinit var buttonListAlarmsRef: Button
     private lateinit var buttonAlarmRegister: Button
 
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         buttonBackRef = findViewById(R.id.imageSettings)
         buttonListAlarmsRef = findViewById(R.id.buttonAlarmList)
         buttonAlarmRegister = findViewById(R.id.buttonAlarmRegister)
+        textViewProgressMesssage = findViewById(R.id.textViewProgressMesssage)
 
         val db = Room.databaseBuilder(
             this,
@@ -75,10 +77,15 @@ class MainActivity : AppCompatActivity() {
             val nameUser = userCalled.name.split(' ')[0]
             textViewUserName.text = "Olá, $nameUser"
             waterAmountUserProgress.text =
-                if (userCalled.waterAmountDrank == 0F) "0 ml" else String.format(
-                    "%.3f",
-                    userCalled.waterAmountDrank
-                )
+                if (userCalled.waterAmountDrank == 0F) "0 ml" else String.format("%.3f" + "ml", userCalled.waterAmountDrank)
+            if(userCalled.waterAmountDrank >= userCalled.waterAmount) {
+                textViewProgressMesssage.text = "Parabéns $nameUser, dia finalizado! \uD83C\uDF89"
+                AlertDialog.Builder(this)
+                    .setTitle(R.string.text_contratulations)
+                    .setMessage(R.string.text_contratulations_description)
+                    .show()
+            }
+
         } else {
             goToSettingsScreen()
         }

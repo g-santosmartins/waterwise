@@ -28,11 +28,11 @@
 
 
         <View
-            android:id="@+id/floatingButton"
+            android:id="@+id/floatingButtonAddAlarm"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginBottom="48dp"
-            android:background="@drawable/floating_button"
+            android:background="@drawable/floating_button_success"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.954"
@@ -67,10 +67,10 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/ic_add"
-            app:layout_constraintBottom_toBottomOf="@+id/floatingButton"
-            app:layout_constraintEnd_toEndOf="@+id/floatingButton"
-            app:layout_constraintStart_toStartOf="@+id/floatingButton"
-            app:layout_constraintTop_toTopOf="@+id/floatingButton" />
+            app:layout_constraintBottom_toBottomOf="@+id/floatingButtonAddAlarm"
+            app:layout_constraintEnd_toEndOf="@+id/floatingButtonAddAlarm"
+            app:layout_constraintStart_toStartOf="@+id/floatingButtonAddAlarm"
+            app:layout_constraintTop_toTopOf="@+id/floatingButtonAddAlarm" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
