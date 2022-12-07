@@ -89,7 +89,7 @@
             android:layout_marginTop="20dp"
             android:text="Seu progresso atual: "
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/container_header"
             app:layout_constraintStart_toStartOf="parent"

@@ -4,17 +4,18 @@
     <string name="hint_age">Insira sua idade (anos)</string>
     <string name="hint_name">Insira seu primeiro nome</string>
     <string name="text_register_alarm">Adicionar lembrete</string>
+    <string name="text_insert_your_personal_data">Preencha os campos abaixo</string>
     <string name="text_list_alarms">Listar lembretes</string>
     <string name="text_save_all">Salvar alterações</string>
     <string name="text_calculate">Calcular</string>
-    <string name="text_confirm">Confirmar</string>
+    <string name="text_confirm">Confirmar informações</string>
 
     <string name="toast_message_error_name">Por favor, informe seu nome e tente novamente!</string>
     <string name="toast_message_error_weight">Por favor, informe seu peso e tente novamente!</string>
     <string name="toast_message_error_age">Por favor, informe sua idade e tente novamente!</string>
     <string name="toast_message_clear">Campos limpos, preencha com a nova informação!</string>
-    <string name="toast_message_saved">Salvo!</string>
-    <string name="toast_message_update">Atualizado!</string>
+    <string name="toast_message_saved">Informações salvas, usuário criado com sucesso!</string>
+    <string name="toast_message_update">Informações atualizadas!</string>
 
     <string name="text_personal_data">Dados pessoais</string>
     <string name="text_get_started">Por onde começar?</string>
