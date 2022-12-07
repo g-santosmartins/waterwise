@@ -15,7 +15,6 @@ import androidx.room.Room
 import com.example.beber_agua.db.AppDatabase
 import com.example.beber_agua.db.entity.UserEntity
 import java.util.*
-import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +27,62 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonListAlarmsRef: Button
     private lateinit var buttonAlarmRegister: Button
 
+    private fun instanceAllFields() {
+        waterAmountTextViewRef = findViewById(R.id.waterAmountTextView)
+        waterAmountUserProgress = findViewById(R.id.waterAmountUserProgress)
+        textViewUserName = findViewById(R.id.textViewUserName)
+        buttonGlassPageRef = findViewById(R.id.imageButtonGlassPage)
+        buttonBackRef = findViewById(R.id.imageSettings)
+        buttonListAlarmsRef = findViewById(R.id.buttonAlarmList)
+        buttonAlarmRegister = findViewById(R.id.buttonAlarmRegister)
+        textViewProgressMesssage = findViewById(R.id.textViewProgressMesssage)
+    }
+
+    private fun goToSettingsScreen() {
+        var settingScreen = Intent(this, Settings::class.java)
+        startActivity(settingScreen)
+    }
+
+    private fun goToAlarmListScreen() {
+        var alarmlistScreen = Intent(this, AlarmList::class.java)
+        startActivity(alarmlistScreen)
+    }
+
+    private fun goToGlassOptionsScreen() {
+        var glasslistScreen = Intent(this, GlassList::class.java)
+        startActivity(glasslistScreen)
+    }
+
+    private fun searchForUserData() {
+        val db = Room.databaseBuilder(
+            this,
+            AppDatabase::class.java,
+            "laagua.db"
+        ).allowMainThreadQueries().build()
+
+        val userCalled: UserEntity = db.userDao.getById(1)
+
+        if (userCalled != null) {
+            waterAmountTextViewRef.text =
+                String.format("%.3f", userCalled.waterAmount) + " ml | Meta"
+            val nameUser = userCalled.name.split(' ')[0]
+            textViewUserName.text = "Olá, $nameUser"
+            waterAmountUserProgress.text =
+                if (userCalled.waterAmountDrank == 0F) "0 ml" else String.format("%.3f" + "ml", userCalled.waterAmountDrank)
+            if(userCalled.waterAmountDrank >= userCalled.waterAmount) {
+                val massage =  "Parabéns $nameUser, dia finalizado! \uD83C\uDF89"
+                textViewProgressMesssage.text = "Parabéns $nameUser, dia finalizado! \uD83C\uDF89"
+                AlertDialog.Builder(this)
+                    .setTitle(massage)
+                    .setMessage(R.string.text_contratulations_description)
+                    .show()
+            }
+
+        } else {
+            goToSettingsScreen()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,58 +92,10 @@ class MainActivity : AppCompatActivity() {
 //      Removes the dark mode from the app
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         //        components initial state
-        waterAmountTextViewRef = findViewById(R.id.waterAmountTextView)
-        waterAmountUserProgress = findViewById(R.id.waterAmountUserProgress)
-        textViewUserName = findViewById(R.id.textViewUserName)
-        buttonGlassPageRef = findViewById(R.id.imageButtonGlassPage)
-        buttonBackRef = findViewById(R.id.imageSettings)
-        buttonListAlarmsRef = findViewById(R.id.buttonAlarmList)
-        buttonAlarmRegister = findViewById(R.id.buttonAlarmRegister)
-        textViewProgressMesssage = findViewById(R.id.textViewProgressMesssage)
+        instanceAllFields()
 
-        val db = Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            "laagua.db"
-        ).allowMainThreadQueries().build()
 
-        fun goToSettingsScreen() {
-            var settingScreen = Intent(this, Settings::class.java)
-            startActivity(settingScreen)
-        }
-
-        fun goToAlarmListScreen() {
-            var alarmlistScreen = Intent(this, AlarmList::class.java)
-            startActivity(alarmlistScreen)
-        }
-
-        fun goToGlassOptionsScreen() {
-            var glasslistScreen = Intent(this, GlassList::class.java)
-            startActivity(glasslistScreen)
-        }
-
-        val userCalled: UserEntity = db.userDao.getById(1)
-        var hasUser: Boolean = false
-
-        if (userCalled != null) {
-            hasUser = true
-            waterAmountTextViewRef.text =
-                String.format("%.3f", userCalled.waterAmount) + " ml | Meta"
-            val nameUser = userCalled.name.split(' ')[0]
-            textViewUserName.text = "Olá, $nameUser"
-            waterAmountUserProgress.text =
-                if (userCalled.waterAmountDrank == 0F) "0 ml" else String.format("%.3f" + "ml", userCalled.waterAmountDrank)
-            if(userCalled.waterAmountDrank >= userCalled.waterAmount) {
-                textViewProgressMesssage.text = "Parabéns $nameUser, dia finalizado! \uD83C\uDF89"
-                AlertDialog.Builder(this)
-                    .setTitle(R.string.text_contratulations)
-                    .setMessage(R.string.text_contratulations_description)
-                    .show()
-            }
-
-        } else {
-            goToSettingsScreen()
-        }
+        searchForUserData()
 
 //      listeners
         buttonGlassPageRef.setOnClickListener {
@@ -121,5 +128,11 @@ class MainActivity : AppCompatActivity() {
         buttonListAlarmsRef.setOnClickListener {
             goToAlarmListScreen()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+//      on resume brings update all data
+        searchForUserData()
     }
 }

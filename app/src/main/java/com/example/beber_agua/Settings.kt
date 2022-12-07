@@ -24,11 +24,7 @@ class Settings : AppCompatActivity() {
     private lateinit var inputAgeRef: EditText
     private lateinit var textWaterGoalRef: TextView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
-        supportActionBar!!.hide()
-
+    private fun instanceAllFields() {
         buttonBackRef = findViewById(R.id.imageViewBackIcon)
         buttonCalculateHowMuchWaterRef = findViewById(R.id.buttonCalculateWaterAmount)
         buttonDeletion = findViewById(R.id.imageViewDeleteIcon)
@@ -36,30 +32,51 @@ class Settings : AppCompatActivity() {
         inputWeightRef = findViewById(R.id.inputWeight)
         inputAgeRef = findViewById(R.id.inputAge)
         textWaterGoalRef = findViewById(R.id.textWaterGoal)
-//        catching a db instance
-        val db = Room.databaseBuilder(
+    }
+
+    private fun goToSettingsPage() {
+        var homeScreen = Intent(this, MainActivity::class.java)
+        startActivity(homeScreen)
+    }
+
+    private fun instanceDatabase(): AppDatabase {
+        return Room.databaseBuilder(
             this,
             AppDatabase::class.java,
             "laagua.db"
         ).allowMainThreadQueries().build()
+    }
+
+    private fun searchForUserData() :Boolean {
+        val db = instanceDatabase()
 
         val userCalled: UserEntity = db.userDao.getById(1)
-        var hasUser: Boolean = false
+        var hasUser: Boolean = true
         if (userCalled != null) {
-            hasUser = true
-            inputNameRef.setText(userCalled.name.toString())
+            inputNameRef.setText(userCalled.name)
             inputWeightRef.setText(userCalled.weight.toString())
             inputAgeRef.setText(userCalled.age.toString())
             textWaterGoalRef.text = String.format("%.3f", userCalled.waterAmount) + " L/dia"
+            return hasUser
+
         }else {
+            hasUser = false
             AlertDialog.Builder(this).setTitle(R.string.text_get_started).setMessage(R.string.text_get_started_description).show()
+            return hasUser
         }
 
+    }
 
-        fun goToSettingsPage() {
-            var homeScreen = Intent(this, MainActivity::class.java)
-            startActivity(homeScreen)
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_settings)
+        supportActionBar!!.hide()
+
+        instanceAllFields()
+//        catching a db instance
+        val db = instanceDatabase()
+
+        val hasUser = searchForUserData()
 
         fun deleteAllFields() {
 //            call DAO here and remove from Room database too
@@ -162,5 +179,10 @@ class Settings : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+//        calling user validation on resume
+        searchForUserData()
+    }
 
 }
