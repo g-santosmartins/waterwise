@@ -94,9 +94,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//
-        val algo = CalculateMetabolicDailyNeed.generateCaloricNeedResult(1, 70.0, 24, 170.0,"extreme")
-        println(algo)
 
         //      hides status bar on app load
         supportActionBar!!.hide()

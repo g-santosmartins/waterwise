@@ -3,6 +3,7 @@
     <string name="hint_weight">Insira seu peso (kg)</string>
     <string name="hint_age">Insira sua idade (anos)</string>
     <string name="hint_name">Insira seu primeiro nome</string>
+    <string name="hint_height">Insira sua altura (centímeros)</string>
     <string name="text_register_alarm">Adicionar lembrete</string>
     <string name="text_insert_your_personal_data">Preencha os campos abaixo</string>
     <string name="text_list_alarms">Listar lembretes</string>
@@ -13,6 +14,7 @@
     <string name="toast_message_error_name">Por favor, informe seu nome e tente novamente!</string>
     <string name="toast_message_error_weight">Por favor, informe seu peso e tente novamente!</string>
     <string name="toast_message_error_age">Por favor, informe sua idade e tente novamente!</string>
+    <string name="toast_message_error_height">Por favor, informe sua altura e tente novamente!</string>
     <string name="toast_message_clear">Campos limpos, preencha com a nova informação!</string>
     <string name="toast_message_saved">Informações salvas, usuário criado com sucesso!</string>
     <string name="toast_message_update">Informações atualizadas!</string>

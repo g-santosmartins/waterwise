@@ -26,10 +26,8 @@ class GlassList : AppCompatActivity() {
     private fun searchForUserData():  UserEntity{
        val databaseInstance =  instanceDatabase()
         val userCalled: UserEntity = databaseInstance.userDao.getById(1)
-        var hasUser: Boolean = false
 
         if (userCalled != null) {
-            hasUser = true
             if (userCalled.waterAmountDrank == 0F) "0 ml" else String.format(
                 "%.3f",
                 userCalled.waterAmountDrank
@@ -81,8 +79,11 @@ class GlassList : AppCompatActivity() {
                         email = "exemplo@exemplo.com.br",
                         weight = userCalled.weight,
                         age = userCalled.age,
+                        height = userCalled.height,
                         waterAmount = userCalled.waterAmount,
-                        waterAmountDrank = userCalled.waterAmountDrank + 0.5F
+                        waterAmountDrank = userCalled.waterAmountDrank + 0.5F,
+                        caloriesDailyAmount = userCalled.caloriesDailyAmount
+
                     )
                 )
                 goToHomePage()
@@ -98,9 +99,12 @@ class GlassList : AppCompatActivity() {
                         name = userCalled.name,
                         email = "exemplo@exemplo.com.br",
                         weight = userCalled.weight,
+                        height = userCalled.height,
                         age = userCalled.age,
                         waterAmount = userCalled.waterAmount,
-                        waterAmountDrank = userCalled.waterAmountDrank + 0.4F
+                        waterAmountDrank = userCalled.waterAmountDrank + 0.4F,
+                        caloriesDailyAmount = userCalled.caloriesDailyAmount
+
                     )
                 )
                 goToHomePage()
@@ -116,9 +120,11 @@ class GlassList : AppCompatActivity() {
                         name = userCalled.name,
                         email = "exemplo@exemplo.com.br",
                         weight = userCalled.weight,
+                        height = userCalled.height,
                         age = userCalled.age,
                         waterAmount = userCalled.waterAmount,
-                        waterAmountDrank = userCalled.waterAmountDrank + 0.3F
+                        waterAmountDrank = userCalled.waterAmountDrank + 0.3F,
+                        caloriesDailyAmount = userCalled.caloriesDailyAmount
                     )
                 )
                 goToHomePage()
@@ -134,9 +140,11 @@ class GlassList : AppCompatActivity() {
                         name = userCalled.name,
                         email = "exemplo@exemplo.com.br",
                         weight = userCalled.weight,
+                        height = userCalled.height,
                         age = userCalled.age,
                         waterAmount = userCalled.waterAmount,
-                        waterAmountDrank = userCalled.waterAmountDrank + 0.2F
+                        waterAmountDrank = userCalled.waterAmountDrank + 0.2F,
+                        caloriesDailyAmount = userCalled.caloriesDailyAmount
                     )
                 )
                 goToHomePage()

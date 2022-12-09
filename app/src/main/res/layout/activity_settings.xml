@@ -25,14 +25,14 @@
 
         <View
             android:id="@+id/floatingButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="76dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/floating_button_danger"
+            app:layout_constraintBottom_toTopOf="@+id/buttonCalculateWaterAmount"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.943"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputAge" />
+            app:layout_constraintHorizontal_bias="0.954"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,19 +51,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="56dp"
-            android:text="@string/text_insert_your_personal_data"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/inputName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Nome:"
             android:textColor="@android:color/holo_blue_dark"
@@ -75,6 +62,20 @@
             app:layout_constraintStart_toStartOf="@+id/inputName" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Altura:"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/inputHeight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/inputWeight" />
+
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -106,13 +107,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:text="Sua meta:"
+            android:text="Sua meta de ingestão:"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="25dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inputAge" />
+
+        <TextView
+            android:id="@+id/labelCalories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Gasto calórico diário (TMB):"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textWaterGoal" />
 
         <TextView
             android:id="@+id/textWaterGoal"
@@ -127,6 +142,19 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/labelWaterGoal" />
+
+        <TextView
+            android:id="@+id/textCaloriesGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="---"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelCalories" />
 
         <ImageView
             android:id="@+id/imageViewBackIcon"
@@ -146,16 +174,18 @@
             android:background="@drawable/ic_close"
             app:layout_constraintBottom_toBottomOf="@+id/floatingButton"
             app:layout_constraintEnd_toEndOf="@+id/floatingButton"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/floatingButton"
-            app:layout_constraintTop_toTopOf="@+id/floatingButton" />
+            app:layout_constraintTop_toTopOf="@+id/floatingButton"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/inputName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="100dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginTop="40dp"
             android:gravity="center"
             android:hint="@string/hint_name"
             android:inputType="textAutoCorrect"
@@ -172,11 +202,30 @@
             android:id="@+id/inputWeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:gravity="center"
             android:hint="@string/hint_weight"
+            android:inputType="numberDecimal"
+            android:maxLength="7"
+            android:padding="15dp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHint="@android:color/holo_blue_dark"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputHeight" />
+
+        <EditText
+            android:id="@+id/inputHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:hint="@string/hint_height"
             android:inputType="numberDecimal"
             android:maxLength="7"
             android:padding="15dp"
@@ -211,7 +260,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="44dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/bg_gradient_standard_button"
             android:padding="15dp"
@@ -222,7 +271,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textWaterGoal"
+            app:layout_constraintTop_toBottomOf="@+id/textCaloriesGoal"
             app:layout_goneMarginRight="20dp" />
 
 
