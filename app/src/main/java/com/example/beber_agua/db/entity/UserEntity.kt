@@ -14,5 +14,5 @@ data class UserEntity(
     val height: Double,
     val waterAmount: Float,
     val waterAmountDrank: Float,
-    val caloriesDailyAmount: Float?
+    val caloriesDailyAmount: Double
 )

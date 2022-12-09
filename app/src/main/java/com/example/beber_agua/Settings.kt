@@ -75,15 +75,15 @@ class Settings : AppCompatActivity() {
         val userCalled: UserEntity = db.userDao.getById(1)
         var hasUser: Boolean = true
         if (userCalled != null) {
+            val caloriesConverted =  userCalled.caloriesDailyAmount.toFloat()
             inputNameRef.setText(userCalled.name)
-            inputWeightRef.setText(userCalled.weight.toString())
+            inputWeightRef.setText(userCalled.weight.toInt().toString())
             inputAgeRef.setText(userCalled.age.toString())
-            inputHeightRef.setText(userCalled.height.toString())
+            inputHeightRef.setText(userCalled.height.toInt().toString())
             textWaterGoalRef.text = String.format("%.3f", userCalled.waterAmount) + " L/dia"
             textCaloriesGoalRef.text =
-                String.format("%.0f", userCalled.caloriesDailyAmount) + " Kcal/dia"
+                String.format("%.0f", caloriesConverted) + " Kcal/dia"
             return hasUser
-
 
         } else {
             hasUser = false
@@ -130,11 +130,11 @@ class Settings : AppCompatActivity() {
                         name = name,
                         email = "exemplo@exemplo.com.br",
                         weight = weightParsed.toFloat(),
-                        height = heightParsed.toDouble(),
+                        height = heightParsed,
                         age = ageParsed,
                         waterAmount = waterAmount,
                         waterAmountDrank = 0F,
-                        caloriesDailyAmount = calculateMetabolicDailyNeed.toFloat()
+                        caloriesDailyAmount = calculateMetabolicDailyNeed
                     )
                 )
                 return true
@@ -165,7 +165,7 @@ class Settings : AppCompatActivity() {
                         age = ageParsed,
                         waterAmount = waterAmount,
                         waterAmountDrank = 0F,
-                        caloriesDailyAmount = calculateMetabolicDailyNeed.toFloat()
+                        caloriesDailyAmount = calculateMetabolicDailyNeed
                     )
                 )
                 return true
