@@ -11,6 +11,8 @@ data class UserEntity(
     val email: String,
     val age: Int,
     val weight: Float,
+    val height: Double,
     val waterAmount: Float,
-    val waterAmountDrank: Float
+    val waterAmountDrank: Float,
+    val caloriesDailyAmount: Float?
 )
