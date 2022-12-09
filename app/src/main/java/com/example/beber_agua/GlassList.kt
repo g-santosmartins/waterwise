@@ -18,22 +18,14 @@ class GlassList : AppCompatActivity() {
     private lateinit var buttonAdd300: Button
     private lateinit var buttonAdd200: Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_glass_list)
-        fun goToHomePage() {
-            var homeScreen = Intent(this, MainActivity::class.java)
-            startActivity(homeScreen)
-        }
+    private fun goToHomePage() {
+        var homeScreen = Intent(this, MainActivity::class.java)
+        startActivity(homeScreen)
+    }
 
-        val db = Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            "laagua.db"
-        ).allowMainThreadQueries().build()
-
-
-        val userCalled: UserEntity = db.userDao.getById(1)
+    private fun searchForUserData():  UserEntity{
+       val databaseInstance =  instanceDatabase()
+        val userCalled: UserEntity = databaseInstance.userDao.getById(1)
         var hasUser: Boolean = false
 
         if (userCalled != null) {
@@ -45,6 +37,26 @@ class GlassList : AppCompatActivity() {
         } else {
             goToHomePage()
         }
+
+        return userCalled
+
+    }
+
+    private fun instanceDatabase(): AppDatabase {
+        return Room.databaseBuilder(
+            this,
+            AppDatabase::class.java,
+            "laagua.db"
+        ).allowMainThreadQueries().build()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_glass_list)
+
+        val db = instanceDatabase()
+//
+        val userCalled = searchForUserData()
 //        hides status bar on app load
         supportActionBar!!.hide()
 //      Removes the dark mode from the app

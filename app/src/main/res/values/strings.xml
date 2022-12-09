@@ -31,8 +31,6 @@
     <string name="text_contratulations">Parabéns por ter concluído a meta! 💙 🎉</string>
     <string name="text_contratulations_description">Você está entre os melhores! Você sabia que um estudo realizado entre 2008 e 2014 pela Danone Research, com 16.276 adultos, com idade entre 18 e 70 anos, de 13 países, incluindo o Brasil, mostrou que o hábito de tomar água está aquém do ideal.</string>
 
-
-
     <string name="text_user_add_error">Erro ao inserir nformações de usuário!</string>
     <string name="text_user_added">Informações de usuário cadastradas!</string>
 </resources>

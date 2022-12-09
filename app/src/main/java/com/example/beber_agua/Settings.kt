@@ -47,7 +47,7 @@ class Settings : AppCompatActivity() {
         ).allowMainThreadQueries().build()
     }
 
-    private fun searchForUserData() :Boolean {
+    private fun searchForUserData(): Boolean {
         val db = instanceDatabase()
 
         val userCalled: UserEntity = db.userDao.getById(1)
@@ -59,9 +59,10 @@ class Settings : AppCompatActivity() {
             textWaterGoalRef.text = String.format("%.3f", userCalled.waterAmount) + " L/dia"
             return hasUser
 
-        }else {
+        } else {
             hasUser = false
-            AlertDialog.Builder(this).setTitle(R.string.text_get_started).setMessage(R.string.text_get_started_description).show()
+            AlertDialog.Builder(this).setTitle(R.string.text_get_started)
+                .setMessage(R.string.text_get_started_description).show()
             return hasUser
         }
 
@@ -118,7 +119,7 @@ class Settings : AppCompatActivity() {
             }
         }
 
-        fun updateUserInfo() : Boolean {
+        fun updateUserInfo(): Boolean {
             if (inputNameRef.text.toString().isEmpty()) {
                 Toast.makeText(this, R.string.toast_message_error_name, Toast.LENGTH_SHORT).show()
                 return false
@@ -155,13 +156,13 @@ class Settings : AppCompatActivity() {
         buttonCalculateHowMuchWaterRef.setOnClickListener {
             if (!hasUser) {
                 val validation = saveUserInfo()
-                if(validation) {
+                if (validation) {
                     Toast.makeText(this, R.string.toast_message_saved, Toast.LENGTH_SHORT).show()
                     goToSettingsPage()
                 }
             } else {
                 val validation = updateUserInfo()
-                if(validation) {
+                if (validation) {
                     Toast.makeText(this, R.string.toast_message_update, Toast.LENGTH_SHORT).show()
                     goToSettingsPage()
                 }

@@ -2,18 +2,23 @@ package com.example.beber_agua
 
 import android.app.TimePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
 import android.provider.AlarmClock
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.TimePicker
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.room.Room
 import com.example.beber_agua.db.AppDatabase
 import com.example.beber_agua.db.entity.UserEntity
+import com.example.beber_agua.utils.CalculateImc
+import com.example.beber_agua.utils.CalculateMetabolicDailyNeed
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -68,10 +73,13 @@ class MainActivity : AppCompatActivity() {
             val nameUser = userCalled.name.split(' ')[0]
             textViewUserName.text = "Olá, $nameUser"
             waterAmountUserProgress.text =
-                if (userCalled.waterAmountDrank == 0F) "0 ml" else String.format("%.3f" + "ml", userCalled.waterAmountDrank)
-            if(userCalled.waterAmountDrank >= userCalled.waterAmount) {
-                val massage =  "Parabéns $nameUser, dia finalizado! \uD83C\uDF89"
-                textViewProgressMesssage.text = "Parabéns $nameUser, dia finalizado! \uD83C\uDF89"
+                if (userCalled.waterAmountDrank == 0F) "0 ml" else String.format(
+                    "%.3f" + "ml",
+                    userCalled.waterAmountDrank
+                )
+            if (userCalled.waterAmountDrank >= userCalled.waterAmount) {
+                val massage = "Parabéns $nameUser, dia finalizado! \uD83C\uDF89"
+                textViewProgressMesssage.text = "Boa $nameUser, dia finalizado! \uD83C\uDF89"
                 AlertDialog.Builder(this)
                     .setTitle(massage)
                     .setMessage(R.string.text_contratulations_description)
@@ -86,6 +94,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//
+        val algo = CalculateMetabolicDailyNeed.generateCaloricNeedResult(1, 70.0, 24, 170.0,"extreme")
+        println(algo)
 
         //      hides status bar on app load
         supportActionBar!!.hide()
@@ -93,7 +104,6 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         //        components initial state
         instanceAllFields()
-
 
         searchForUserData()
 
@@ -108,15 +118,18 @@ class MainActivity : AppCompatActivity() {
             val exactMinutes = calendar.get(Calendar.MINUTE) + 5
 
 
-            var timePickerDialog = TimePickerDialog(this, {
-                 timePicker :TimePicker , exactHour : Int, exactMinutes: Int ->
+            var timePickerDialog =
+                TimePickerDialog(this, { _: TimePicker, exactHour: Int, exactMinutes: Int ->
 //                logic to create an alarm
-                val intentAlarmCreation = Intent(AlarmClock.ACTION_SET_ALARM)
-                intentAlarmCreation.putExtra(AlarmClock.EXTRA_HOUR, exactHour)
-                intentAlarmCreation.putExtra(AlarmClock.EXTRA_MINUTES, exactMinutes)
-                intentAlarmCreation.putExtra(AlarmClock.EXTRA_MESSAGE, R.string.text_alarm_description )
-                startActivity(intentAlarmCreation)
-            }, exactHour, exactMinutes, true)
+                    val intentAlarmCreation = Intent(AlarmClock.ACTION_SET_ALARM)
+                    intentAlarmCreation.putExtra(AlarmClock.EXTRA_HOUR, exactHour)
+                    intentAlarmCreation.putExtra(AlarmClock.EXTRA_MINUTES, exactMinutes)
+                    intentAlarmCreation.putExtra(
+                        AlarmClock.EXTRA_MESSAGE,
+                        R.string.text_alarm_description
+                    )
+                    startActivity(intentAlarmCreation)
+                }, exactHour, exactMinutes, true)
             timePickerDialog.show()
         }
 
