@@ -43,6 +43,14 @@ class MainActivity : AppCompatActivity() {
         textViewProgressMesssage = findViewById(R.id.textViewProgressMesssage)
     }
 
+    private fun instanceDatabase(): AppDatabase {
+        return Room.databaseBuilder(
+            this,
+            AppDatabase::class.java,
+            "laagua.db"
+        ).allowMainThreadQueries().build()
+    }
+
     private fun goToSettingsScreen() {
         var settingScreen = Intent(this, Settings::class.java)
         startActivity(settingScreen)
@@ -56,6 +64,35 @@ class MainActivity : AppCompatActivity() {
     private fun goToGlassOptionsScreen() {
         var glasslistScreen = Intent(this, GlassList::class.java)
         startActivity(glasslistScreen)
+    }
+
+    private fun checkResetWaterGoal() {
+        val db = instanceDatabase()
+
+        val userCalled: UserEntity = db.userDao.getById(1)
+
+        val calendar = Calendar.getInstance()
+        val currentYearDay = calendar.get(Calendar.DAY_OF_YEAR)
+        println(currentYearDay)
+
+        if (userCalled != null && userCalled.dayOfYear != currentYearDay) {
+            db.userDao.update(
+                UserEntity(
+                    id = 1,
+                    name = userCalled.name,
+                    email = "exemplo@exemplo.com.br",
+                    weight = userCalled.weight,
+                    age = userCalled.age,
+                    height = userCalled.height,
+                    waterAmount = userCalled.waterAmount,
+                    waterAmountDrank = 0F,
+                    caloriesDailyAmount = userCalled.caloriesDailyAmount,
+                    dayOfYear = userCalled.dayOfYear,
+                    dailyGoalCompleted = userCalled.dailyGoalCompleted
+
+                )
+            )
+        }
     }
 
     private fun searchForUserData() {
@@ -139,10 +176,9 @@ class MainActivity : AppCompatActivity() {
             goToAlarmListScreen()
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-//      on resume brings update all data
+    override fun onStart() {
+        super.onStart()
+        checkResetWaterGoal()
         searchForUserData()
     }
 }

@@ -82,7 +82,9 @@ class GlassList : AppCompatActivity() {
                         height = userCalled.height,
                         waterAmount = userCalled.waterAmount,
                         waterAmountDrank = userCalled.waterAmountDrank + 0.5F,
-                        caloriesDailyAmount = userCalled.caloriesDailyAmount
+                        caloriesDailyAmount = userCalled.caloriesDailyAmount,
+                        dayOfYear = userCalled.dayOfYear,
+                        dailyGoalCompleted = userCalled.dailyGoalCompleted
 
                     )
                 )
@@ -103,7 +105,9 @@ class GlassList : AppCompatActivity() {
                         age = userCalled.age,
                         waterAmount = userCalled.waterAmount,
                         waterAmountDrank = userCalled.waterAmountDrank + 0.4F,
-                        caloriesDailyAmount = userCalled.caloriesDailyAmount
+                        caloriesDailyAmount = userCalled.caloriesDailyAmount,
+                        dayOfYear = userCalled.dayOfYear,
+                        dailyGoalCompleted = userCalled.dailyGoalCompleted
 
                     )
                 )
@@ -124,7 +128,9 @@ class GlassList : AppCompatActivity() {
                         age = userCalled.age,
                         waterAmount = userCalled.waterAmount,
                         waterAmountDrank = userCalled.waterAmountDrank + 0.3F,
-                        caloriesDailyAmount = userCalled.caloriesDailyAmount
+                        caloriesDailyAmount = userCalled.caloriesDailyAmount,
+                        dayOfYear = userCalled.dayOfYear,
+                        dailyGoalCompleted = userCalled.dailyGoalCompleted
                     )
                 )
                 goToHomePage()
@@ -144,7 +150,9 @@ class GlassList : AppCompatActivity() {
                         age = userCalled.age,
                         waterAmount = userCalled.waterAmount,
                         waterAmountDrank = userCalled.waterAmountDrank + 0.2F,
-                        caloriesDailyAmount = userCalled.caloriesDailyAmount
+                        caloriesDailyAmount = userCalled.caloriesDailyAmount,
+                        dayOfYear = userCalled.dayOfYear,
+                        dailyGoalCompleted = userCalled.dailyGoalCompleted
                     )
                 )
                 goToHomePage()

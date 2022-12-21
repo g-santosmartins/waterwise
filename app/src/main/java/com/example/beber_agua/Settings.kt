@@ -14,6 +14,7 @@ import com.example.beber_agua.db.AppDatabase
 import com.example.beber_agua.db.entity.UserEntity
 import com.example.beber_agua.utils.CalculateHowMuchWater
 import com.example.beber_agua.utils.CalculateMetabolicDailyNeed
+import java.util.*
 
 class Settings : AppCompatActivity() {
 
@@ -62,7 +63,7 @@ class Settings : AppCompatActivity() {
         } else if (inputAgeRef.text.toString().isEmpty()) {
             Toast.makeText(this, R.string.toast_message_error_age, Toast.LENGTH_SHORT).show()
             return false
-        }else if (inputHeightRef.text.toString().isEmpty()) {
+        } else if (inputHeightRef.text.toString().isEmpty()) {
             Toast.makeText(this, R.string.toast_message_error_height, Toast.LENGTH_SHORT).show()
             return false
         }
@@ -75,7 +76,7 @@ class Settings : AppCompatActivity() {
         val userCalled: UserEntity = db.userDao.getById(1)
         var hasUser: Boolean = true
         if (userCalled != null) {
-            val caloriesConverted =  userCalled.caloriesDailyAmount.toFloat()
+            val caloriesConverted = userCalled.caloriesDailyAmount.toFloat()
             inputNameRef.setText(userCalled.name)
             inputWeightRef.setText(userCalled.weight.toInt().toString())
             inputAgeRef.setText(userCalled.age.toString())
@@ -87,8 +88,6 @@ class Settings : AppCompatActivity() {
 
         } else {
             hasUser = false
-            AlertDialog.Builder(this).setTitle(R.string.text_get_started)
-                .setMessage(R.string.text_get_started_description).show()
             return hasUser
         }
 
@@ -114,16 +113,25 @@ class Settings : AppCompatActivity() {
         }
 
         fun saveUserInfo(): Boolean {
-            if ( validatInputs()) {
+            if (validatInputs()) {
                 val name = inputNameRef.text.toString()
                 val weightParsed = inputWeightRef.text.toString().toDouble()
                 val heightParsed = inputHeightRef.text.toString().toDouble()
                 val ageParsed = inputAgeRef.text.toString().toInt()
                 val calculateHowMuchWater = CalculateHowMuchWater()
-                val calculateMetabolicDailyNeed = CalculateMetabolicDailyNeed.generateCaloricNeedResult(1, weightParsed, ageParsed, heightParsed, "very_low" )
+                val calculateMetabolicDailyNeed =
+                    CalculateMetabolicDailyNeed.generateCaloricNeedResult(
+                        1,
+                        weightParsed,
+                        ageParsed,
+                        heightParsed,
+                        "very_low"
+                    )
                 val waterAmount = calculateHowMuchWater.calculate(weightParsed, ageParsed).toFloat()
                 textWaterGoalRef.text = String.format("%.3f", waterAmount) + " L/dia"
-                println(calculateMetabolicDailyNeed)
+
+                val calendar = Calendar.getInstance()
+                val currentYearDay = calendar.get(Calendar.DAY_OF_YEAR)
 //              implements db.logic
                 db.userDao.insert(
                     UserEntity(
@@ -134,7 +142,10 @@ class Settings : AppCompatActivity() {
                         age = ageParsed,
                         waterAmount = waterAmount,
                         waterAmountDrank = 0F,
-                        caloriesDailyAmount = calculateMetabolicDailyNeed
+                        caloriesDailyAmount = calculateMetabolicDailyNeed,
+                        dayOfYear = currentYearDay,
+                        dailyGoalCompleted = false
+
                     )
                 )
                 return true
@@ -144,16 +155,26 @@ class Settings : AppCompatActivity() {
         }
 
         fun updateUserInfo(): Boolean {
-           if(validatInputs()){
+            if (validatInputs()) {
                 val name = inputNameRef.text.toString()
                 val weightParsed = inputWeightRef.text.toString().toDouble()
-               val heightParsed = inputHeightRef.text.toString().toDouble()
-               val ageParsed = inputAgeRef.text.toString().toInt()
+                val heightParsed = inputHeightRef.text.toString().toDouble()
+                val ageParsed = inputAgeRef.text.toString().toInt()
                 val calculateHowMuchWater = CalculateHowMuchWater()
-               val calculateMetabolicDailyNeed = CalculateMetabolicDailyNeed.generateCaloricNeedResult(1, weightParsed, ageParsed, heightParsed, "very_low" )
-               val waterAmount = calculateHowMuchWater.calculate(weightParsed, ageParsed).toFloat()
+                val calculateMetabolicDailyNeed =
+                    CalculateMetabolicDailyNeed.generateCaloricNeedResult(
+                        1,
+                        weightParsed,
+                        ageParsed,
+                        heightParsed,
+                        "very_low"
+                    )
+                val waterAmount = calculateHowMuchWater.calculate(weightParsed, ageParsed).toFloat()
                 textWaterGoalRef.text = String.format("%.3f", waterAmount) + " L/dia"
 //               textCaloriesGoalRef.text = String.format("%0.f", waterAmount) + " Kcal/dia"
+                val calendar = Calendar.getInstance()
+                val currentYearDay = calendar.get(Calendar.DAY_OF_YEAR)
+
 //              implements db.logic
                 db.userDao.update(
                     UserEntity(
@@ -165,13 +186,15 @@ class Settings : AppCompatActivity() {
                         age = ageParsed,
                         waterAmount = waterAmount,
                         waterAmountDrank = 0F,
-                        caloriesDailyAmount = calculateMetabolicDailyNeed
+                        caloriesDailyAmount = calculateMetabolicDailyNeed,
+                        dayOfYear = currentYearDay,
+                        dailyGoalCompleted = false
                     )
                 )
                 return true
             } else {
                 return false
-           }
+            }
         }
 //
 
@@ -202,10 +225,15 @@ class Settings : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
 //        calling user validation on resume
-        searchForUserData()
+        val hasUserValidation = searchForUserData()
+        println( hasUserValidation)
+        if(!hasUserValidation) {
+            AlertDialog.Builder(this).setTitle(R.string.text_get_started)
+                .setMessage(R.string.text_get_started_description).show()
+        }
     }
 
 }
