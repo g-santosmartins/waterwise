@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                     email = "exemplo@exemplo.com.br",
                     weight = userCalled.weight,
                     age = userCalled.age,
+                    gender = userCalled.gender,
                     height = userCalled.height,
                     waterAmount = userCalled.waterAmount,
                     waterAmountDrank = 0F,
