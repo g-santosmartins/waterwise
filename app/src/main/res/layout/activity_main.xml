@@ -75,7 +75,7 @@
             android:id="@+id/imageButtonGlassPage"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/ic_drink"
+            android:background="@drawable/ic_glasscup"
             app:layout_constraintBottom_toBottomOf="@+id/floatingButtonDanger"
             app:layout_constraintEnd_toEndOf="@+id/floatingButtonDanger"
             app:layout_constraintStart_toStartOf="@+id/floatingButtonDanger"

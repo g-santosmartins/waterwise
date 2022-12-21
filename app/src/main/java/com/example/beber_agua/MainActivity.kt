@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity() {
 
         val calendar = Calendar.getInstance()
         val currentYearDay = calendar.get(Calendar.DAY_OF_YEAR)
-        println(currentYearDay)
 
         if (userCalled != null && userCalled.dayOfYear != currentYearDay) {
             db.userDao.update(
