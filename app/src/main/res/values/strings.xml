@@ -30,6 +30,7 @@
     <string name="text_glass_300">300 ml de água</string>
     <string name="text_glass_400">400 ml de água</string>
     <string name="text_glass_500">500 ml de água</string>
+    <string name="text_glass_1L">1000 ml de água</string>
     <string name="text_alarm_description">Opa, está hora de tomar aquela água 💙 </string>
     <string name="text_contratulations">Parabéns por ter concluído a meta! 💙 🎉</string>
     <string name="text_contratulations_description">Você está entre os melhores! Você sabia que um estudo realizado entre 2008 e 2014 pela Danone Research, com 16.276 adultos, com idade entre 18 e 70 anos, de 13 países, incluindo o Brasil, mostrou que o hábito de tomar água está aquém do ideal.</string>
@@ -42,6 +43,7 @@
     <string name="text_add_water_glass">Salvar copo</string>
     <string name="hint_glass_amount">Digite a quantidade de água</string>
     <string name="toast_error_glass">Por favor insira a quantidade de agua desejada</string>
-    <string name="page_title_glass_add">Controle de quantidades</string>
-    <string name="text_glass_1L">1000ml de água</string>
+    <string name="page_title_glass_add">Definir quantidade</string>
+    <string name="toast_message_error_water_input">Erro ao adicionar quantidade de água, revise os dados </string>
+    <string name="toast_message_error_glass_save">Copo não foi  salvo, por favor tente novamente</string>
 </resources>

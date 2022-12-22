@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewProgressMesssage: TextView
     private lateinit var buttonListAlarmsRef: Button
     private lateinit var buttonAlarmRegister: Button
-    private lateinit var floatingButtonFastAddWater : View
+    private lateinit var floatingButtonFastAddWater: View
 
     private fun instanceAllFields() {
         waterAmountTextViewRef = findViewById(R.id.waterAmountTextView)
@@ -75,6 +75,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(glasslistScreen)
     }
 
+    private fun goToWaterAmountScreen() {
+        var waterAmountScreen = Intent(this, AmountWater::class.java)
+        startActivity(waterAmountScreen)
+    }
+
     private fun checkResetWaterGoal() {
         val db = instanceDatabase()
 
@@ -97,8 +102,8 @@ class MainActivity : AppCompatActivity() {
                     waterAmountDrank = 0F,
                     caloriesDailyAmount = userCalled.caloriesDailyAmount,
                     dayOfYear = currentYearDay,
-                    dailyGoalCompleted = userCalled.dailyGoalCompleted
-
+                    dailyGoalCompleted = userCalled.dailyGoalCompleted,
+                    lastGlassInput = userCalled.lastGlassInput
                 )
             )
         }
@@ -136,7 +141,8 @@ class MainActivity : AppCompatActivity() {
             goToSettingsScreen()
         }
     }
-//    notification channel
+
+    //    notification channel
     private fun createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -161,16 +167,16 @@ class MainActivity : AppCompatActivity() {
 //        calls notification channel instance
         createNotificationChannel()
 
-        var builder = NotificationCompat.Builder(this, 1.toString())
-            .setSmallIcon(R.drawable.ic_water_drop)
-            .setContentTitle("Fala humano! Tudo em cima? \uD83D\uDC99")
-            .setContentText("Bora se hidratar? Abra o app e veja quanto falta para atingir a sua meta  \uD83D\uDC99")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
-        with(NotificationManagerCompat.from(this)) {
-            // notificationId is a unique int for each notification that you must define
-            notify(2, builder.build())
-        }
+//        var builder = NotificationCompat.Builder(this, 1.toString())
+//            .setSmallIcon(R.drawable.ic_water_drop)
+//            .setContentTitle("Fala humano! Tudo em cima? \uD83D\uDC99")
+//            .setContentText("Bora se hidratar? Abra o app e veja quanto falta para atingir a sua meta  \uD83D\uDC99")
+//            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+//
+//        with(NotificationManagerCompat.from(this)) {
+//            // notificationId is a unique int for each notification that you must define
+//            notify(2, builder.build())
+//        }
 
 
         //      hides status bar on app load
@@ -218,9 +224,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         floatingButtonFastAddWater.setOnClickListener {
-            goToGlassOptionsScreen()
+            goToWaterAmountScreen()
         }
     }
+
     override fun onStart() {
         super.onStart()
         checkResetWaterGoal()

@@ -16,6 +16,7 @@ data class UserEntity(
     val waterAmount: Float,
     val waterAmountDrank: Float,
     val caloriesDailyAmount: Double,
+    val lastGlassInput: Float,
     val dayOfYear: Int,
     val dailyGoalCompleted: Boolean
 )

@@ -90,9 +90,9 @@ class Settings : AppCompatActivity() {
             textWaterGoalRef.text = String.format("%.3f", userCalled.waterAmount) + " L/dia"
             textCaloriesGoalRef.text =
                 String.format("%.0f", caloriesConverted) + " Kcal/dia"
-            if(userCalled.gender == 1) {
+            if (userCalled.gender == 1) {
                 radioGroupGender.check(R.id.radioButtonMale)
-            }else {
+            } else {
                 radioGroupGender.check(R.id.radioButtonFemale)
             }
             return hasUser
@@ -135,8 +135,8 @@ class Settings : AppCompatActivity() {
                 val waterAmount = calculateHowMuchWater.calculate(weightParsed, ageParsed).toFloat()
                 textWaterGoalRef.text = String.format("%.3f", waterAmount) + " L/dia"
                 var gender = "1"
-                if(radioButtonFemale.isChecked) {
-                 gender = "2"
+                if (radioButtonFemale.isChecked) {
+                    gender = "2"
                 }
                 val calculateMetabolicDailyNeed =
                     CalculateMetabolicDailyNeed.generateCaloricNeedResult(
@@ -156,13 +156,13 @@ class Settings : AppCompatActivity() {
                         weight = weightParsed.toFloat(),
                         height = heightParsed,
                         age = ageParsed,
-                        gender= gender.toInt(),
+                        gender = gender.toInt(),
                         waterAmount = waterAmount,
                         waterAmountDrank = 0F,
                         caloriesDailyAmount = calculateMetabolicDailyNeed,
                         dayOfYear = currentYearDay,
-                        dailyGoalCompleted = false
-
+                        dailyGoalCompleted = false,
+                        lastGlassInput = 0F
                     )
                 )
                 return true
@@ -185,7 +185,7 @@ class Settings : AppCompatActivity() {
                 val currentYearDay = calendar.get(Calendar.DAY_OF_YEAR)
 
                 var gender = "1"
-                if(radioButtonFemale.isChecked) {
+                if (radioButtonFemale.isChecked) {
                     gender = "2"
                 }
 
@@ -207,12 +207,13 @@ class Settings : AppCompatActivity() {
                         weight = weightParsed.toFloat(),
                         height = heightParsed,
                         age = ageParsed,
-                        gender= gender.toInt(),
+                        gender = gender.toInt(),
                         waterAmount = waterAmount,
                         waterAmountDrank = 0F,
                         caloriesDailyAmount = calculateMetabolicDailyNeed,
                         dayOfYear = currentYearDay,
-                        dailyGoalCompleted = false
+                        dailyGoalCompleted = false,
+                        lastGlassInput = 0F
                     )
                 )
                 return true
@@ -253,8 +254,8 @@ class Settings : AppCompatActivity() {
         super.onStart()
 //        calling user validation on resume
         val hasUserValidation = searchForUserData()
-        println( hasUserValidation)
-        if(!hasUserValidation) {
+        println(hasUserValidation)
+        if (!hasUserValidation) {
             AlertDialog.Builder(this).setTitle(R.string.text_get_started)
                 .setMessage(R.string.text_get_started_description).show()
         }

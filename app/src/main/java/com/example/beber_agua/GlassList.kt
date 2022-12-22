@@ -97,7 +97,8 @@ class GlassList : AppCompatActivity() {
                         waterAmountDrank = userCalled.waterAmountDrank + 1F,
                         caloriesDailyAmount = userCalled.caloriesDailyAmount,
                         dayOfYear = userCalled.dayOfYear,
-                        dailyGoalCompleted = userCalled.dailyGoalCompleted
+                        dailyGoalCompleted = userCalled.dailyGoalCompleted,
+                        lastGlassInput  = userCalled.lastGlassInput
                     )
                 )
                 goToHomePage()
@@ -121,8 +122,8 @@ class GlassList : AppCompatActivity() {
                         waterAmountDrank = userCalled.waterAmountDrank + 0.5F,
                         caloriesDailyAmount = userCalled.caloriesDailyAmount,
                         dayOfYear = userCalled.dayOfYear,
-                        dailyGoalCompleted = userCalled.dailyGoalCompleted
-
+                        dailyGoalCompleted = userCalled.dailyGoalCompleted,
+                        lastGlassInput  = userCalled.lastGlassInput
                     )
                 )
                 goToHomePage()
@@ -145,7 +146,8 @@ class GlassList : AppCompatActivity() {
                         waterAmountDrank = userCalled.waterAmountDrank + 0.4F,
                         caloriesDailyAmount = userCalled.caloriesDailyAmount,
                         dayOfYear = userCalled.dayOfYear,
-                        dailyGoalCompleted = userCalled.dailyGoalCompleted
+                        dailyGoalCompleted = userCalled.dailyGoalCompleted,
+                        lastGlassInput  = userCalled.lastGlassInput
 
                     )
                 )
@@ -169,7 +171,8 @@ class GlassList : AppCompatActivity() {
                         waterAmountDrank = userCalled.waterAmountDrank + 0.3F,
                         caloriesDailyAmount = userCalled.caloriesDailyAmount,
                         dayOfYear = userCalled.dayOfYear,
-                        dailyGoalCompleted = userCalled.dailyGoalCompleted
+                        dailyGoalCompleted = userCalled.dailyGoalCompleted,
+                        lastGlassInput  = userCalled.lastGlassInput
                     )
                 )
                 goToHomePage()
@@ -192,7 +195,8 @@ class GlassList : AppCompatActivity() {
                         waterAmountDrank = userCalled.waterAmountDrank + 0.2F,
                         caloriesDailyAmount = userCalled.caloriesDailyAmount,
                         dayOfYear = userCalled.dayOfYear,
-                        dailyGoalCompleted = userCalled.dailyGoalCompleted
+                        dailyGoalCompleted = userCalled.dailyGoalCompleted,
+                        lastGlassInput  = userCalled.lastGlassInput
                     )
                 )
                 goToHomePage()
