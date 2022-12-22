@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewProgressMesssage: TextView
     private lateinit var buttonListAlarmsRef: Button
     private lateinit var buttonAlarmRegister: Button
+    private lateinit var floatingButtonFastAddWater : View
 
     private fun instanceAllFields() {
         waterAmountTextViewRef = findViewById(R.id.waterAmountTextView)
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         buttonListAlarmsRef = findViewById(R.id.buttonAlarmList)
         buttonAlarmRegister = findViewById(R.id.buttonAlarmRegister)
         textViewProgressMesssage = findViewById(R.id.textViewProgressMesssage)
+        floatingButtonFastAddWater = findViewById(R.id.floatingButtonFastAddWater)
     }
 
     private fun instanceDatabase(): AppDatabase {
@@ -121,10 +124,10 @@ class MainActivity : AppCompatActivity() {
                     userCalled.waterAmountDrank
                 )
             if (userCalled.waterAmountDrank >= userCalled.waterAmount) {
-                val massage = "Parabéns $nameUser, dia finalizado! \uD83C\uDF89"
+                val message = "Parabéns $nameUser, dia finalizado! \uD83C\uDF89"
                 textViewProgressMesssage.text = "Boa $nameUser, dia finalizado! \uD83C\uDF89"
                 AlertDialog.Builder(this)
-                    .setTitle(massage)
+                    .setTitle(message)
                     .setMessage(R.string.text_contratulations_description)
                     .show()
             }
@@ -212,6 +215,10 @@ class MainActivity : AppCompatActivity() {
 
         buttonListAlarmsRef.setOnClickListener {
             goToAlarmListScreen()
+        }
+
+        floatingButtonFastAddWater.setOnClickListener {
+            goToGlassOptionsScreen()
         }
     }
     override fun onStart() {
