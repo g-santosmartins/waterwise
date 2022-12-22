@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="20dp"
+    tools:context=".AmountWater">
+
+    <View
+        android:id="@+id/container_header"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/container_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/page_title_glass_add"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/container_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/container_header" />
+
+    <ImageView
+        android:id="@+id/imageViewBackIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_back"
+        app:layout_constraintEnd_toEndOf="@+id/container_header"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="@+id/container_header"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Quantidade água (ml)"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/inputGlassAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputGlassAdd" />
+
+    <EditText
+        android:id="@+id/inputGlassAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:hint="@string/hint_glass_amount"
+        android:inputType="number"
+        android:maxLength="30"
+        android:padding="15dp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_header" />
+
+    <Button
+        android:id="@+id/buttonAddAmountWater"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="@string/text_add_water_amount"
+        android:textSize="18dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        app:icon="@drawable/ic_water_drop"
+        app:layout_constraintTop_toBottomOf="@+id/inputGlassAdd"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <Button
+        android:id="@+id/buttonSaveGlassConfig"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#5FBC0C"
+        android:text="@string/text_add_water_glass"
+        android:textSize="18dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold"
+        app:icon="@drawable/ic_check"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddAmountWater"
+        tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,4 +38,10 @@
     <string name="text_user_added">Informações de usuário cadastradas!</string>
     <string name="channel_name">laagua_channel</string>
     <string name="channel_description">Laagua channel to notify user</string>
+    <string name="text_add_water_amount">Adicionar quantidade</string>
+    <string name="text_add_water_glass">Salvar copo</string>
+    <string name="hint_glass_amount">Digite a quantidade de água</string>
+    <string name="toast_error_glass">Por favor insira a quantidade de agua desejada</string>
+    <string name="page_title_glass_add">Controle de quantidades</string>
+    <string name="text_glass_1L">1000ml de água</string>
 </resources>
