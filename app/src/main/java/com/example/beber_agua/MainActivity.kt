@@ -1,9 +1,13 @@
 package com.example.beber_agua
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.app.TimePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.util.Log
@@ -14,6 +18,8 @@ import android.widget.TimePicker
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.room.Room
 import com.example.beber_agua.db.AppDatabase
 import com.example.beber_agua.db.entity.UserEntity
@@ -127,10 +133,42 @@ class MainActivity : AppCompatActivity() {
             goToSettingsScreen()
         }
     }
+//    notification channel
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = getString(R.string.channel_name)
+            val descriptionText = getString(R.string.channel_description)
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel(1.toString(), name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        calls notification channel instance
+        createNotificationChannel()
+
+        var builder = NotificationCompat.Builder(this, 1.toString())
+            .setSmallIcon(R.drawable.ic_water_drop)
+            .setContentTitle("Fala humano! Tudo em cima? \uD83D\uDC99")
+            .setContentText("Bora se hidratar? Abra o app e veja quanto falta para atingir a sua meta  \uD83D\uDC99")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        with(NotificationManagerCompat.from(this)) {
+            // notificationId is a unique int for each notification that you must define
+            notify(2, builder.build())
+        }
+
 
         //      hides status bar on app load
         supportActionBar!!.hide()

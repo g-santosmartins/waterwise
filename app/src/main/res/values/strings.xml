@@ -36,4 +36,6 @@
 
     <string name="text_user_add_error">Erro ao inserir nformações de usuário!</string>
     <string name="text_user_added">Informações de usuário cadastradas!</string>
+    <string name="channel_name">laagua_channel</string>
+    <string name="channel_description">Laagua channel to notify user</string>
 </resources>
