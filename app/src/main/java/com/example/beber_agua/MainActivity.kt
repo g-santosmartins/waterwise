@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                     waterAmount = userCalled.waterAmount,
                     waterAmountDrank = 0F,
                     caloriesDailyAmount = userCalled.caloriesDailyAmount,
-                    dayOfYear = userCalled.dayOfYear,
+                    dayOfYear = currentYearDay,
                     dailyGoalCompleted = userCalled.dailyGoalCompleted
 
                 )
